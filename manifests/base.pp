@@ -6,8 +6,9 @@ node default {
     update_tries    => 3
   }
   class { 'docker':
-    tcp_bind    => 'tcp://127.0.0.1:4243',
-    socket_bind => 'unix:///var/run/docker.sock',
+    version       => '1.0.0',
+    tcp_bind      => 'tcp://0.0.0.0:4243',
+    socket_bind   => 'unix:///var/run/docker.sock',
   }
   docker::image { 'hyleung/jenkins-agent':
     require =>  Class['docker']
@@ -15,11 +16,18 @@ node default {
   docker::image { 'hyleung/android-agent':
     require => Class['docker']
   }
+  docker::image { 'evarga/jenkins-slave':
+    require => Class['docker']
+  }
   jenkins::plugin {'git-client':} ~>
   jenkins::plugin {'scm-api':} ~>
-  jenkins::plugin {'git':}
-  jenkins::plugin {
-    'docker-plugin':
-      version =>'0.6'
+  jenkins::plugin {'git':} ~>
+  
+  file { '/var/lib/jenkins/plugins/docker-plugin.hpi':
+    source => '/vagrant/files/docker-plugin.hpi'
   }
+  #jenkins::plugin {
+  #  'docker-plugin':
+  #    version =>'0.6';
+  #}
 }
