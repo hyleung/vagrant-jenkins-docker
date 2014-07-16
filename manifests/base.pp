@@ -16,14 +16,21 @@ node default {
   docker::image { 'hyleung/android-agent':
     require => Class['docker']
   }
-  docker::image { 'evarga/jenkins-slave':
-    require => Class['docker']
-  }
+
   jenkins::plugin {'git-client':} ~>
   jenkins::plugin {'scm-api':} ~>
   jenkins::plugin {'git':} ~>
-    jenkins::plugin {
+  jenkins::plugin {
     'docker-plugin':
       version =>'0.6.1';
+  } 
+  jenkins::plugin {'mailer':
+    version =>  '1.8';
+  } ~>
+  jenkins::plugin {'openid4java':
+    version => '0.9.8.0';
+  } ~>
+  jenkins::plugin {'openid':
+    version => '2.1';
   }
 }
