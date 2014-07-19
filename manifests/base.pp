@@ -36,4 +36,7 @@ node default {
   jenkins::plugin {'hockeyapp':
     version => '1.1.0';
   }
+  jenkins::plugin {'gradle':
+    version => '1.24';
+  }
 }
