@@ -23,7 +23,7 @@ node default {
   jenkins::plugin {
     'docker-plugin':
       version =>'0.6.1';
-  } 
+  }
   jenkins::plugin {'mailer':
     version =>  '1.8';
   } ~>
@@ -32,5 +32,8 @@ node default {
   } ~>
   jenkins::plugin {'openid':
     version => '2.1';
+  }
+  jenkins::plugin {'hockeyapp':
+    version => '1.1.0';
   }
 }
