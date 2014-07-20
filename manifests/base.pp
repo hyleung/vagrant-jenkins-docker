@@ -5,6 +5,13 @@ node default {
     update_timeout  => undef,
     update_tries    => 3
   }
+
+  #Packages
+  package {'git':
+    ensure => present;
+  }
+
+  #Docker
   class { 'docker':
     version       => '1.0.0',
     tcp_bind      => 'tcp://0.0.0.0:4243',
@@ -17,6 +24,19 @@ node default {
     require => Class['docker']
   }
 
+  #Jenkins user
+  group { 'jenkins':
+    ensure => present;
+  } ->
+  user {'jenkins':
+    ensure => present,
+    managehome => true,
+    gid => 'jenkins',
+    groups => 'sudoers'
+  } ->
+  ssh_keygen { 'jenkins': }
+
+  #Jenkins plugins
   jenkins::plugin {'git-client':} ~>
   jenkins::plugin {'scm-api':} ~>
   jenkins::plugin {'git':} ~>

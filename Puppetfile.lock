@@ -6,6 +6,7 @@ FORGE
       puppetlabs/apt (>= 1.1.0)
       puppetlabs/stdlib (>= 4.1.0)
       stahnma/epel (>= 0.0.6)
+    maestrodev/ssh_keygen (1.2.0)
     puppetlabs/apt (1.5.0)
       puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/java (1.1.1)
@@ -20,6 +21,7 @@ FORGE
 
 DEPENDENCIES
   garethr/docker (>= 0)
+  maestrodev/ssh_keygen (>= 0)
   puppetlabs/stdlib (>= 0)
   rtyler/jenkins (>= 0)
 
