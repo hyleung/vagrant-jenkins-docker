@@ -32,7 +32,7 @@ node default {
     ensure => present,
     managehome => true,
     gid => 'jenkins',
-    groups => 'sudoers'
+    groups => 'sudo'
   } ->
   ssh_keygen { 'jenkins': }
 
