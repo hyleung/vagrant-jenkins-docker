@@ -5,14 +5,22 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-	config.vm.box = "precise64_docker"
-	config.vm.network "forwarded_port", guest:8080, host: 9090
-	config.vm.network "forwarded_port", guest:4243, host: 4243
+	config.vm.box = "aws_dummy"
+    config.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
+    config.vm.provider :aws do |aws,override|
+        aws.ami = "ami-ddaed3ed"
+        aws.region = ENV["AWS_REGION"]
+        aws.instance_type = "t1.micro"
+        aws.keypair_name = ENV["AWS_KEYPAIR"]
+        aws.user_data = File.read("files/user-data-script.sh")
+        override.ssh.username = "ubuntu"
+        override.ssh.private_key_path = ENV["AWS_SSH_KEYPATH"]
+    end
 	config.vm.provision :puppet do |puppet|
-			  puppet.module_path = "modules"
-			  puppet.manifests_path = "manifests"
-			  puppet.manifest_file = "base.pp"
-			  puppet.options = "--hiera_config /vagrant/files/hiera.yaml"
+        puppet.module_path = "modules"
+        puppet.manifests_path = "manifests"
+        puppet.manifest_file = "base.pp"
+        puppet.options = "--hiera_config /vagrant/files/hiera.yaml"
 	end
 	#config.vm.provision "docker" do |d|
 	#		  d.pull_images "evarga/jenkins-slave"
