@@ -4,10 +4,10 @@ This is a Vagrant-based setup for Jenkins w/Docker build agents. Uses Puppet to 
 
 ##Pre-requisites
 
-- [Vagrant]("http://www.vagrantup.com")
-- [Librarian Puppet]("https://github.com/rodjek/librarian-puppet") for installing the necessary Puppet modules
+- [Vagrant](http://www.vagrantup.com)
+- [Librarian Puppet](https://github.com/rodjek/librarian-puppet) for installing the necessary Puppet modules
 - Either VMWare or VirtualBox, for local environments
-- [Optional] Vagrant [AWS plugin]("https://github.com/mitchellh/vagrant-aws"]) for AWS environments
+- [Optional] Vagrant [AWS plugin](https://github.com/mitchellh/vagrant-aws) for AWS environments
 
 ##Local Setup
 
