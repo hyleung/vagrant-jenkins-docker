@@ -3,3 +3,5 @@
 modules/
 .librarian
 *.swp
+.rubyversion
+
