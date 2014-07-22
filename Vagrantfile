@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provider :aws do |aws,override|
         aws.ami = "ami-ddaed3ed"
         aws.region = ENV["AWS_REGION"]
-        aws.instance_type = "t2.small"
+        aws.instance_type = "t1.micro"
         aws.keypair_name = ENV["AWS_KEYPAIR"]
         aws.user_data = File.read("files/user-data-script.sh")
         override.ssh.username = "ubuntu"
