@@ -67,6 +67,12 @@ node default {
   } ~>
   jenkins::plugin {'ssh-slaves':
     version => '1.6';
+  } ~>
+  jenkins::plugin {'build-monitor-plugin':
+    version => '1.5+build.120';
+  } 
+  jenkins::plugin {'hockeyapp':
+    version => '1.0.3';
   }
 
 }
