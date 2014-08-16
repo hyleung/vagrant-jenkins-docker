@@ -4,6 +4,7 @@ mod 'puppetlabs/stdlib'
 mod 'rtyler/jenkins'
 mod 'garethr/docker'
 mod 'maestrodev/ssh_keygen'
+mod 'jfryman/nginx'
 
 # mod 'ntp',
 #   :git => 'git://github.com/puppetlabs/puppetlabs-ntp.git'

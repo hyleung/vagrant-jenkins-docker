@@ -1,14 +1,20 @@
 FORGE
-  remote: http://forge.puppetlabs.com
+  remote: https://forgeapi.puppetlabs.com
   specs:
     darin/zypprepo (1.0.1)
     garethr/docker (1.0.1)
       puppetlabs/apt (>= 1.1.0)
       puppetlabs/stdlib (>= 4.1.0)
       stahnma/epel (>= 0.0.6)
+    jfryman/nginx (0.0.10)
+      puppetlabs/apt (>= 1.0.0)
+      puppetlabs/concat (>= 1.1.0)
+      puppetlabs/stdlib (>= 3.0.0)
     maestrodev/ssh_keygen (1.2.0)
     puppetlabs/apt (1.5.0)
       puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/concat (1.1.0)
+      puppetlabs/stdlib (>= 4.0.0)
     puppetlabs/java (1.1.1)
       puppetlabs/stdlib (>= 0.1.6)
     puppetlabs/stdlib (4.2.2)
@@ -21,6 +27,7 @@ FORGE
 
 DEPENDENCIES
   garethr/docker (>= 0)
+  jfryman/nginx (>= 0)
   maestrodev/ssh_keygen (>= 0)
   puppetlabs/stdlib (>= 0)
   rtyler/jenkins (>= 0)

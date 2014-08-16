@@ -6,6 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.box = "precise64_docker"
+	config.vm.network "forwarded_port", guest:80, host:88 
 	config.vm.network "forwarded_port", guest:8080, host: 9090
 	config.vm.network "forwarded_port", guest:4243, host: 4243
 	config.vm.provision :puppet do |puppet|
