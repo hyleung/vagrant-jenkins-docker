@@ -10,7 +10,8 @@ node default {
   package {'git':
     ensure => present;
   }
-
+  #NGINX
+  class { 'nginx': }
   #Docker
   class { 'docker':
     version       => '1.0.0',
