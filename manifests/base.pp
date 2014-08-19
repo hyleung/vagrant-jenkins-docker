@@ -13,18 +13,18 @@ node default {
   #NGINX
   class { 'nginx': }
   #Docker
-  class { 'docker':
-    version       => '1.0.0',
-    tcp_bind      => 'tcp://0.0.0.0:4243',
-    socket_bind   => 'unix:///var/run/docker.sock',
-  }
-  docker::image { 'hyleung/jenkins-agent':
-    require =>  Class['docker']
-  }
-  docker::image { 'hyleung/android-agent':
-    require => Class['docker']
-  }
-
+  #  class { 'docker':
+  #    version       => '1.0.0',
+  #    tcp_bind      => 'tcp://0.0.0.0:4243',
+  #    socket_bind   => 'unix:///var/run/docker.sock',
+  #  }
+  #  docker::image { 'hyleung/jenkins-agent':
+  #    require =>  Class['docker']
+  #  }
+  #  docker::image { 'hyleung/android-agent':
+  #    require => Class['docker']
+  #  }
+  #
   #Jenkins user
   group { 'jenkins':
     ensure => present;

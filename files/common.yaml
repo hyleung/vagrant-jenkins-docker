@@ -1,0 +1,4 @@
+nginx::nginx_vhosts:
+    'jenkins.local':
+        www_root: '/var/www/jenkins.local'
+
