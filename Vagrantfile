@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.box = "aws_dummy"
     config.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
     config.vm.provider :aws do |aws,override|
-        aws.ami = "ami-ddaed3ed"
+        aws.ami = "ami-8bb8c0bb"
         aws.region = ENV["AWS_REGION"]
         aws.instance_type = "t1.micro"
         aws.keypair_name = ENV["AWS_KEYPAIR"]
