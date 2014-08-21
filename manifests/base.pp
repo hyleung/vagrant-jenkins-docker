@@ -73,4 +73,9 @@ node default {
     version => '1.5+build.120';
   } 
 
+  file{ '/var/dockervolume':
+    ensure => directory,
+    mode   => 'a+w';
+  }
+  	
 }
