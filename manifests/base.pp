@@ -72,6 +72,15 @@ node default {
   jenkins::plugin {'build-monitor-plugin':
     version => '1.5+build.120';
   }
+  jenkins::plugin {'git-server':
+    version => '1.3';
+  } ~>
+  jenkins::plugin {'scriptler':
+    version => '2.2';
+  } ~>
+  jenkins::plugin {'token-macro':
+    version => '1.5.1';
+  } ~>
   jenkins::plugin {'dynamicparameter':
     version => '0.2.0';
   } 
