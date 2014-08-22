@@ -43,10 +43,10 @@ node default {
   jenkins::plugin {'git':} ~>
   jenkins::plugin {
     'docker-plugin':
-      version =>'0.6.2';
+      version =>'0.7';
   }
   jenkins::plugin {'mailer':
-    version =>  '1.9';
+    version =>  '1.10';
   } ~>
   jenkins::plugin {'openid4java':
     version => '0.9.8.0';
@@ -61,16 +61,19 @@ node default {
     version => '1.24';
   }
   jenkins::plugin {'credentials':
-    version => '1.15';
+    version => '1.16.1';
   } ~>
   jenkins::plugin {'ssh-credentials':
-    version => '1.7.1';
+    version => '1.9';
   } ~>
   jenkins::plugin {'ssh-slaves':
     version => '1.6';
   } ~>
   jenkins::plugin {'build-monitor-plugin':
     version => '1.5+build.120';
+  }
+  jenkins::plugin {'dynamicparameter':
+    version => '0.2.0';
   } 
 
   file{ '/var/dockervolume':
