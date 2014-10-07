@@ -14,7 +14,7 @@ node default {
 
   #Docker
   class { 'docker':
-    version       => '1.0.0',
+    version       => '1.2.0',
     tcp_bind      => 'tcp://0.0.0.0:4243',
     socket_bind   => 'unix:///var/run/docker.sock',
   }
