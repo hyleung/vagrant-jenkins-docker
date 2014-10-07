@@ -11,9 +11,6 @@ FORGE
       puppetlabs/concat (>= 1.1.0)
       puppetlabs/stdlib (>= 3.0.0)
     maestrodev/ssh_keygen (1.2.0)
-    puppetlabs/apache (1.1.1)
-      puppetlabs/concat (>= 1.0.0)
-      puppetlabs/stdlib (>= 2.4.0)
     puppetlabs/apt (1.6.0)
       puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/concat (1.1.0)
@@ -32,7 +29,6 @@ DEPENDENCIES
   garethr/docker (>= 0)
   jfryman/nginx (>= 0)
   maestrodev/ssh_keygen (>= 0)
-  puppetlabs/apache (>= 0)
   puppetlabs/stdlib (>= 0)
   rtyler/jenkins (>= 0)
 

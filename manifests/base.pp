@@ -1,5 +1,6 @@
 
 node default {
+  include jenkins
   class { 'apt':
     update_timeout  => undef,
     update_tries    => 3
@@ -9,9 +10,8 @@ node default {
   package {'git':
     ensure => present;
   }
-
-  class {'apache': }
-
+  #NGINX
+  class { 'nginx': }
   #Docker
   class { 'docker':
     version       => '1.2.0',
@@ -26,22 +26,14 @@ node default {
   }
 
   #Jenkins user
-  class {'jenkins':
-    config_hash => {
-      'PREFIX'      => { 'value' => '/jenkins' },
-      'JENKINS_ARGS'=> {
-        'value' => '--webroot=/var/cache/jenkins/war --httpPort=$HTTP_PORT --ajp13Port=$AJP_PORT --prefix=$PREFIX'
-      }
-    }
-  }
   group { 'jenkins':
     ensure => present;
   } ->
   user {'jenkins':
-    ensure      => present,
-    managehome  => true,
-    gid         => 'jenkins',
-    groups      => 'sudo'
+    ensure => present,
+    managehome => true,
+    gid => 'jenkins',
+    groups => 'sudo'
   } ->
   ssh_keygen { 'jenkins': }
 
@@ -79,6 +71,6 @@ node default {
   } ~>
   jenkins::plugin {'build-monitor-plugin':
     version => '1.5+build.120';
-  }
+  } 
 
 }
